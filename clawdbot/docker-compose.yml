@@ -1,0 +1,46 @@
+# ClawDBot - Docker Compose Configuration
+# =========================================
+# Resource limits: ≤512MB RAM, ≤1 CPU
+# No local LLM - uses remote endpoint via secure tunnel
+
+version: '3.8'
+
+services:
+  clawdbot:
+    build: .
+    container_name: clawdbot
+    restart: unless-stopped
+    
+    # Resource constraints (low-resource safe mode)
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+    
+    # Environment variables (set via .env file or host env)
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_ALLOWED_IDS=${TELEGRAM_ALLOWED_IDS}
+      - LOCAL_LLM_API_BASE=${LOCAL_LLM_API_BASE}
+      - LOCAL_LLM_MODEL=${LOCAL_LLM_MODEL}
+      - LOCAL_LLM_TIMEOUT=${LOCAL_LLM_TIMEOUT:-60}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Security
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=50m
