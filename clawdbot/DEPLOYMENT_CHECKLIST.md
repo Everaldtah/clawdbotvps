@@ -42,7 +42,7 @@ export TELEGRAM_ALLOWED_IDS="5836707779"
 export LOCAL_LLM_API_BASE="https://saint-intent-cigarette-listening.trycloudflare.com/v1"
 export LOCAL_LLM_MODEL="openai/gpt-oss-20b"
 export LOCAL_LLM_TIMEOUT="60"
-export OPENAI_API_KEY="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"
+export OPENAI_API_KEY="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"
 
 # Run deployment
 chmod +x deploy.sh
