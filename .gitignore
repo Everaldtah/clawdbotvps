@@ -1,2 +1,25 @@
+# Secrets
+.env
 
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Archives / artifacts
+*.tar.gz
+zi2CAmdH
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
 .env

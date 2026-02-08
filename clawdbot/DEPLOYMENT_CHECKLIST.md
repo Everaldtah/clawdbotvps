@@ -36,13 +36,13 @@ ssh ubuntu@YOUR_VPS_IP
 git clone <your-repo-url>
 cd clawdbot
 
-# Set environment variables
-export TELEGRAM_BOT_TOKEN="8215402085:AAGRcj73pjlSNSOte0p6-ZLhaPIHMYwuDTw"
-export TELEGRAM_ALLOWED_IDS="5836707779"
-export LOCAL_LLM_API_BASE="https://saint-intent-cigarette-listening.trycloudflare.com/v1"
+# Set environment variables (use your real values from .env)
+export TELEGRAM_BOT_TOKEN="<your-bot-token>"
+export TELEGRAM_ALLOWED_IDS="<your-telegram-user-id>"
+export LOCAL_LLM_API_BASE="<your-tunnel-url>/v1"
 export LOCAL_LLM_MODEL="openai/gpt-oss-20b"
 export LOCAL_LLM_TIMEOUT="60"
-export OPENAI_API_KEY="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"
+export OPENAI_API_KEY="<your-openai-key>"
 
 # Run deployment
 chmod +x deploy.sh
